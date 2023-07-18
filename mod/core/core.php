@@ -13,7 +13,7 @@ Class Core{
         //Вызов Роутера
     }
 
-    
+
     //Проверка адреса
     public function get_url_page(){
         //Полный путь
@@ -35,7 +35,7 @@ Class Core{
         //Количество вложений
         self::$h['url']['direct_size'] = count(self::$h['url']['a_direct_in_array']) - 2;
         
-
+        //Определение переменных, избегаю дальнейших ошибок.
         self::$h['url']['get_in_line'] = "";
         self::$h['url']['a_get_key_in_line']= [];
         self::$h['url']['a_get_key_in_array'] =[];
