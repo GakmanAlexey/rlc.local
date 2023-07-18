@@ -14,5 +14,5 @@ spl_autoload_register(function ($class_name) {
     
 });
 session_start();
-$router = new \Mod\Router\Router;
+$router = new \Mod\Core\Core;
 ?>
