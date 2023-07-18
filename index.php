@@ -14,5 +14,6 @@ spl_autoload_register(function ($class_name) {
     
 });
 session_start();
-$router = new \Mod\Core\Core;
+$Core = new \Mod\Core\Core;
+var_dump('<pre>',$Core::$h,'</pre>');
 ?>
