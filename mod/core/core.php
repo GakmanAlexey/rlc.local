@@ -15,7 +15,14 @@ Class Core{
         $fw = new \Mod\Firewall\Firewall();
         self::$h = $fw->main(self::$h);
         
+        //Вызов sql
+        $Sql = new \Mod\Sql\Sql;
+        self::$h['sql'] = [];
+        self::$h['sql'][] = new \Mod\Sql\Sql;
+
         //Вызов Роутера
+        $fw = new \Mod\Router\Router();
+        self::$h = $fw->main(self::$h);
         
 
         return self::$h ;

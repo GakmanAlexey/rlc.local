@@ -7,7 +7,8 @@ Class Sql extends \PDO{
 
     public function __construct(){
         $cfg =  new \Mod\Sql\Config;
-        $this->db_connect = new \PDO('mysql:host='.$cfg->host.';dbname='.$cfg->detabase, $cfg->login, $cfg->pass);
+        //var_dump('mysql:host='.$cfg->host.':'.$cfg->port.';dbname='.$cfg->detabase, $cfg->login, $cfg->pass);
+        $this->db_connect = new \PDO('mysql:host='.$cfg->host.':'.$cfg->port.';dbname='.$cfg->detabase, $cfg->login, $cfg->pass);
         return;
     }
 }

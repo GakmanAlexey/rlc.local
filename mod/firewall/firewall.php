@@ -9,6 +9,7 @@ Class Firewall{
         self::$h = $h;
         self::$h["FireWall"] = [];
         self::$h["FireWall"]["status"] = "Инициализация";
+        self::$h["FireWall"]["connect_type"] = "user";
         return self::$h;
     }
 
