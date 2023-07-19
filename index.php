@@ -19,3 +19,4 @@ $Core = new \Mod\Core\Core;
 
 var_dump('<pre>',$Core::$h,'</pre>');
 ?>
+p
