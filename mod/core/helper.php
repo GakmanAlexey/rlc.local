@@ -3,6 +3,6 @@
 namespace Mod\Core;
 
 Class Helper{
-    public $main = [];
+    public static $main ;
    
 }

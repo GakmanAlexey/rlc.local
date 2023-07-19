@@ -15,5 +15,7 @@ spl_autoload_register(function ($class_name) {
 });
 session_start();
 $Core = new \Mod\Core\Core;
+
+
 var_dump('<pre>',$Core::$h,'</pre>');
 ?>
