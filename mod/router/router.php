@@ -24,7 +24,7 @@ Class Router{
 
     public function user($h){
         
-
+        $h = $this->go($h);
         return $h;
     }
     public function bot($h){
@@ -39,6 +39,12 @@ Class Router{
     }
     public function error($h){
         $h["error"]["Router"]["select_type"] = "Ошибка определения типа пользователя";
+
+        return $h;
+    }
+
+    public function go($h){
+        $connect = $h["sql"]["db_connect"]->db_connect;
 
         return $h;
     }

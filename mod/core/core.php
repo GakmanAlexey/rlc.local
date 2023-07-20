@@ -16,9 +16,8 @@ Class Core{
         self::$h = $fw->main(self::$h);
         
         //Вызов sql
-        $Sql = new \Mod\Sql\Sql;
         self::$h['sql'] = [];
-        self::$h['sql'][] = new \Mod\Sql\Sql;
+        self::$h['sql']["db_connect"] = new \Mod\Sql\Sql;
 
         //Вызов Роутера
         $fw = new \Mod\Router\Router();
