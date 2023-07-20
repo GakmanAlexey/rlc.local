@@ -45,10 +45,12 @@ Class Router{
 
     public function go($h){
         $connect = $h["sql"]["db_connect"]->db_connect;
-
+            $sth = $connect->prepare("SELECT * FROM `router` WHERE `url` = ?");
+            $sth->execute(array($h["url"]["get_in_line"]));
+            $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
         return $h;
     }
-
+    //Редирект если нет флеша на конце строки
     public function redirect300($h){
         if($h["error"]["url_dont_have_slash"]){
             $url = $h["url"]["direct_in_line"];
