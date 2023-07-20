@@ -23,7 +23,7 @@ Class Router{
     }
 
     public function user($h){
-        
+        $h = $this->redirect300($h);
         $h = $this->go($h);
         return $h;
     }
@@ -45,6 +45,18 @@ Class Router{
 
     public function go($h){
         $connect = $h["sql"]["db_connect"]->db_connect;
+
+        return $h;
+    }
+
+    public function redirect300($h){
+        if($h["error"]["url_dont_have_slash"]){
+            $url = $h["url"]["direct_in_line"];
+            if(isset($h["url"]["get_in_line"]) and $h["url"]["get_in_line"] != ""){
+                $url = $url."?".$h["url"]["get_in_line"];
+            }
+            header("Location: ".$url);
+        }
 
         return $h;
     }
