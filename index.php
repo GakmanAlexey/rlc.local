@@ -13,7 +13,7 @@ spl_autoload_register(function ($class_name) {
     if(file_exists(MYPOS."/".$class_name . '.php')){include_once MYPOS."/".$class_name . '.php';}
     
 });
-if(true){
+if(false){//После установки изменить на фалсе
     $ins = new \Mod\Install\Install;
     $ins->main();
     die();
@@ -24,4 +24,3 @@ $Core = new \Mod\Core\Core;
 
 var_dump('<pre>',$Core::$h,'</pre>');
 ?>
-p

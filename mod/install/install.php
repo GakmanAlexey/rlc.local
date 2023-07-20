@@ -10,6 +10,14 @@ Class Install{
         $files1 = scandir($dir);
         var_dump("<pre>",$dir,"</pre>");
         var_dump("<pre>",$files1,"</pre>");
+        foreach($files1 as $f){
+            if ($f == "install") continue;
+            $file_o = MYPOS.SLASH."mod".SLASH. $f .SLASH. "install.php";
+            if (file_exists($file_o)) {
+                include $file_o;
+            }
+
+        }
     }
 
    
