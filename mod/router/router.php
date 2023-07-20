@@ -48,6 +48,10 @@ Class Router{
             $sth = $connect->prepare("SELECT * FROM `router` WHERE `url` = ?");
             $sth->execute(array($h["url"]["get_in_line"]));
             $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
+        if(!($result_sql["id"] >= 1)) {
+            $this->e404($h);
+            die();
+        }    
         return $h;
     }
     //Редирект если нет флеша на конце строки
@@ -61,6 +65,11 @@ Class Router{
         }
 
         return $h;
+    }
+
+    public function e404($h){
+        http_response_code(404);
+        echo "error 404: page don't faunt!!!";
     }
    
 }
