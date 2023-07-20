@@ -13,6 +13,11 @@ spl_autoload_register(function ($class_name) {
     if(file_exists(MYPOS."/".$class_name . '.php')){include_once MYPOS."/".$class_name . '.php';}
     
 });
+if(true){
+    $ins = new \Mod\Install\Install;
+    $ins->main();
+    die();
+}
 session_start();
 $Core = new \Mod\Core\Core;
 
