@@ -1,0 +1,175 @@
+@font-face {
+	font-family: 'fb'; 
+	src: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/fonts/Montserrat-SemiBold.ttf); 
+}
+@font-face {
+	font-family: 'fr'; 
+	src: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/fonts/Montserrat-Regular.ttf); 
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'fr';
+    background-image: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/img/fon.png); 
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.work_1{
+    width: 50vw;
+    height: 100vh;
+    background-color: #98AEC7;
+    background-image: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/img/p.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 45vh;
+    
+}
+
+.work_1_box{
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.work_box_title{
+font-size: 58px;
+color: #fff;
+font-family: 'fb'; 
+}
+
+.work_box_text{
+font-size: 20px;
+color: #fff;
+max-width: 255px;
+
+}
+.m_auto{
+margin: 0 0 0 auto;
+}
+
+.work_box_button_link{
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    width: 255px;
+    height: 50px;
+}
+.work_box_button{
+    margin-top: 20px;
+    width: 255px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 30px;
+    padding-top: 15px;
+}
+
+.work_2{
+    width: 50vw;
+    height: 50vh;
+    background-color: #9FC798;
+    background-image: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/img/p1.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 30vh;
+    text-align: end;
+    
+}
+
+
+.work_2_box{
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.work_3{
+    width: 50vw;
+    height: 50vh;
+    background-color: #D4B973;
+    background-image: url(file:///C:/Users/Vlada/Desktop/Новая%20папка/img/p2.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 38vh;
+    
+}
+
+
+.work_3_box{
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 960px){
+    .container{flex-direction: column;
+    }
+    .work_1{
+        width: 100vw;
+        height: 80vh;
+        background-size: 32vh;
+    }
+
+    .work_2{
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .work_3{
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .work_box_2_text{
+    }
+}
+
+.form_box{
+    background-color: #ffffff;
+    margin: 0 auto;
+    max-width: 880px;
+    padding: 30px 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    margin-bottom: 100px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.input{
+    margin: 10px 0;
+    width: 540px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #555555;
+}
+
+.button{
+    margin-top: 30px;
+width: 355px;
+height: 55px;
+border-radius: 30px;
+font-size: 20px;
+background-color: #fff;
+}
+
+.application{
+    text-align: center;
+}
+
+.application_title{
+    font-size: 48px;
+}
+
+.application_text{
+    font-size: 28px;
+}

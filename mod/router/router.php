@@ -46,8 +46,14 @@ Class Router{
     public function go($h){
         $connect = $h["sql"]["db_connect"]->db_connect;
             $sth = $connect->prepare("SELECT * FROM `router` WHERE `url` = ?");
-            $sth->execute(array($h["url"]["get_in_line"]));
+            $sth->execute(array($h["url"]["direct_in_line"]));
             $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
+           
+            $class = $result_sql["class"];
+            $funct = $result_sql["funct"];
+            $result = new $class;
+            $result->$funct($h);
+           
         if(!($result_sql["id"] >= 1)) {
             $this->e404($h);
             die();
