@@ -10,7 +10,7 @@
     
     <title>Заголовок страницы</title>
     <meta name="description" content="Описание страницы">
-    <link rel="icon" sizes="192x192" href="/path/to/icon.png">
+    <link rel="icon" sizes="<?php echo $h["head"]["formanico"];?>" href="<?php echo $h["head"]["ico"];?>">
     <meta name="generator" content="<?php echo $h["head"]["generator"];?>">
     <meta name="theme-color" content="#4285f4">
 </head>

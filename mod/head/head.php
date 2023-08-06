@@ -6,8 +6,9 @@ Class Head{
     public static $h = [];
 
     public function main($h){
-        
+        $config = new \Mod\Head\Config;
         $h['head'] = [];
+        $h = $config->data($h);
         $h = $this->title($h);
         $h = $this->description($h);
         $h = $this->icon($h);
@@ -36,7 +37,8 @@ Class Head{
     public function icon($h){
 
 
-
+        $h['head']['ico'] = $h['head']["cfg"]["ico"];
+        $h['head']['formanico'] = "128x128";
         return $h;
     }
 
