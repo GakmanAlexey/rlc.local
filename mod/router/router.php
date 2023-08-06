@@ -52,12 +52,13 @@ Class Router{
             $class = $result_sql["class"];
             $funct = $result_sql["funct"];
             $result = new $class;
-            $result->$funct($h);
+            $h = $result->$funct($h);
            
         if(!($result_sql["id"] >= 1)) {
             $this->e404($h);
             die();
-        }    
+        }   
+        //var_dump('<pre>',self::$h,'</pre>'); 
         return $h;
     }
     //Редирект если нет флеша на конце строки

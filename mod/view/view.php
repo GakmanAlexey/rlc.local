@@ -30,6 +30,8 @@ Class View {
                 $log->loging("view", $m);
             }
         }
+        //var_dump('<pre>',self::$h,'</pre>');
+        return self::$h ;
 
     }
 }
