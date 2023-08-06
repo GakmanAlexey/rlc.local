@@ -9,6 +9,19 @@ Class Head{
         $config = new \Mod\Head\Config;
         $h['head'] = [];
         $h = $config->data($h);
+
+        $connect = $h["sql"]["db_connect"]->db_connect;
+            $sth = $connect->prepare("SELECT * FROM `heads` WHERE `url` = ? LIMIT 1");
+            $sth->execute(array($h["url"]["direct_in_line"]));
+            $h['head']["res_db"] = $sth->fetch(\PDO::FETCH_ASSOC);
+           
+           
+        if(!($h['head']["res_db"]["id"] >= 1)) {
+            $h['head']["indb"] = false;
+        }  else{            
+            $h['head']["indb"] = true;
+        }
+
         $h = $this->title($h);
         $h = $this->description($h);
         $h = $this->icon($h);
@@ -19,18 +32,21 @@ Class Head{
 
     //<title>Заголовок страницы</title>
     public function title($h){
-
-
-        $h['head']['title'] = $h['head']["cfg"]["title"];
+        if($h['head']["indb"]){
+            $h['head']['title'] = $h['head']["res_db"]["title"];
+        }else{
+            $h['head']['title'] = $h['head']["cfg"]["title"];
+        }        
         return $h;
     }
 
     //<meta name="description" content="Описание страницы">.
     public function description($h){
-
-
-
-        $h['head']['description'] = $h['head']["cfg"]["description"];
+        if($h['head']["indb"]){
+            $h['head']['description'] = $h['head']["res_db"]["description"];
+        }else{
+            $h['head']['description'] = $h['head']["cfg"]["description"];
+        } 
         return $h;
     }
 
