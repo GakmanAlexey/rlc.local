@@ -8,8 +8,10 @@ Class Config{
 
         $h['head']["cfg"]["ico"] = "\src\ico\icon.png";//иконка
         $h['head']["cfg"]["themcolor"] = "";//цвет
-        $h['head']["cfg"]["title"] = "";//Название
-        $h['head']["cfg"]["description"] = "";//Название
+        $h['head']["cfg"]["title"] = "тайтл по умолчанию";//Название
+        $h['head']["cfg"]["description"] = "Описание по умолчанию";//Название
+        $h['head']["cfg"]["themcolor"] = "Описание по умолчанию";//Название
+        $h['head']["cfg"]["themeColor"] = "#ff0000";
         return $h;
     }
 

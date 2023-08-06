@@ -21,7 +21,7 @@ Class Head{
     public function title($h){
 
 
-
+        $h['head']['title'] = $h['head']["cfg"]["title"];
         return $h;
     }
 
@@ -30,6 +30,7 @@ Class Head{
 
 
 
+        $h['head']['description'] = $h['head']["cfg"]["description"];
         return $h;
     }
 
@@ -54,6 +55,7 @@ Class Head{
 
     //<meta name="theme-color" content="#4285f4">
     public function themeColor($h){
+        $h['head']['themeColor'] = $h['head']["cfg"]["themeColor"];
 
 
 
