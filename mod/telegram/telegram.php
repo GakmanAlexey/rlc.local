@@ -4,13 +4,19 @@ namespace Mod\Telegram;
 
 Class Telegram {
     
-    public $token = '999999999:XXXXXXXXXXXXXXXXXXXXXXXXXXXX';// сюда нужно вписать токен вашего бота
-    public $chat_id = '999999999';// сюда нужно вписать ваш внутренний айдишник
+    public $token = '6040940830:AAEzN6YpVLQar2wUNojIYhB7zJxTEvxa1TM';// сюда нужно вписать токен вашего бота
+    public $chat_id = '477850396';// сюда нужно вписать ваш внутренний айдишник
 
    
 
-    public function message($h,$text,$token,$chat_id)
+    public function message($h,$text,$token = null,$chat_id = null)
     {
+        if($token == null){
+            $token = $this->token;
+        }
+        if($chat_id == null){
+            $chat_id = $this->chat_id;
+        }
         $ch = curl_init();
         curl_setopt_array(
             $ch,
