@@ -45,6 +45,7 @@ Class Zayavka{
         Имя: $name
         Город: $gorod
         Телефон: $phone
+        Возраст: $age
         Позиция: $position
 ------------";
         $h["zayavka"] = [];

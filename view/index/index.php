@@ -63,13 +63,16 @@
     <a name="form_link"></a>    
             <div class="form_box">
                     <form action="/zayavka/" class="form" method="post" >
-                        <input class="input" type="text" name="name" placeholder="Имя">
-                        <input class="input" type="text" name="gorod"  placeholder="Город">
-                        <input class="input" type="text" name="phone"  placeholder="Телефон">
-                        <input class="input" type="text" name="age" placeholder="Возраст">
+                        <input class="input" type="text" name="name" placeholder="Имя" required>
+                        <input class="input" type="text" name="gorod"  placeholder="Город" required>
+                        <input class="input" id="online_phone" type="text" name="phone"  required 
+                        placeholder="Телефон "
+                        >
+                        <input class="input" type="text" name="age" placeholder="Возраст" required>
                         <input type="hidden" id="hid" name="possitions" value="<?php echo $h["index"]["position"];?>" />
                         <button class="button">отправить</button>
                     </form>
+                    
                 </div>
             </div>  
     
