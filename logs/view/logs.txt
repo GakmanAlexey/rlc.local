@@ -26,3 +26,4 @@
 [03.08.2023 21:42:37] system: Не найдет файл: C:\OSPanel\domains\rlc.local\vies\index\index.php
 [03.08.2023 21:42:39] system: Не найдет файл: C:\OSPanel\domains\rlc.local\vies\index\index.php
 [03.08.2023 21:42:56] system: Не найдет файл: C:\OSPanel\domains\rlc.local\vies\index\index.php
+[06.08.2023 11:03:19] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\index\e404.php

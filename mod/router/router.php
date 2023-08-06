@@ -48,16 +48,18 @@ Class Router{
             $sth = $connect->prepare("SELECT * FROM `router` WHERE `url` = ?");
             $sth->execute(array($h["url"]["direct_in_line"]));
             $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
-           
+
+            if(!($result_sql["id"] >= 1)) {
+                $this->e404($h);
+                return $h;
+            }   
+
             $class = $result_sql["class"];
             $funct = $result_sql["funct"];
             $result = new $class;
             $h = $result->$funct($h);
            
-        if(!($result_sql["id"] >= 1)) {
-            $this->e404($h);
-            die();
-        }   
+
         //var_dump('<pre>',self::$h,'</pre>'); 
         return $h;
     }
@@ -76,7 +78,8 @@ Class Router{
 
     public function e404($h){
         http_response_code(404);
-        echo "error 404: page don't faunt!!!";
+        $e404 = new \Controller\Index\e404;
+        $e404->index($h);
     }
    
 }
