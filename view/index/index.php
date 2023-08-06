@@ -62,11 +62,11 @@
     </div>  
     <a name="form_link"></a>    
             <div class="form_box">
-                    <form action="/zayavka/" class="form" >
-                        <input class="input" type="text" placeholder="Имя">
-                        <input class="input" type="text" placeholder="Город">
-                        <input class="input" type="text" placeholder="Телефон">
-                        <input class="input" type="text" placeholder="Возраст">
+                    <form action="/zayavka/" class="form" method="post" >
+                        <input class="input" type="text" name="name" placeholder="Имя">
+                        <input class="input" type="text" name="gorod"  placeholder="Город">
+                        <input class="input" type="text" name="phone"  placeholder="Телефон">
+                        <input class="input" type="text" name="age" placeholder="Возраст">
                         <input type="hidden" id="hid" name="possitions" value="<?php echo $h["index"]["position"];?>" />
                         <button class="button">отправить</button>
                     </form>
