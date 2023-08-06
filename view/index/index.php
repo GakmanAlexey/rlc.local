@@ -16,7 +16,7 @@
                                             Работа с кассовым аппаратом;<br>
                     </p>
                 </div>
-                <a class="work_box_button_link" href="#form_link"><div class="work_box_button">стать кассиром</div></a>
+                <a class="work_box_button_link" href="?position=kassir#form_link"><div class="work_box_button">стать кассиром</div></a>
             </div>
         </div>
         <div class="work_2_3_box">
@@ -36,7 +36,7 @@
                     </p>
 
                     </div>
-                    <a class="work_box_button_link m_auto" href="#form_link"><div class="work_box_button  m_auto">стать поваром</div></a>
+                    <a class="work_box_button_link m_auto" href="?position=povar#form_link"><div class="work_box_button  m_auto">стать поваром</div></a>
                 </div>
             </div>
 
@@ -55,18 +55,19 @@
                                             Наводить порядок в помещениях;<br>
                     </p>
                     </div>
-                    <a class="work_box_button_link" href="#form_link"><div class="work_box_button">стать клинером</div></a>
+                    <a class="work_box_button_link" href="?position=cleaner#form_link"><div class="work_box_button">стать клинером</div></a>
                 </div>
             </div>
         </div>
     </div>  
     <a name="form_link"></a>    
             <div class="form_box">
-                    <form action="" class="form" >
+                    <form action="/zayavka/" class="form" >
                         <input class="input" type="text" placeholder="Имя">
                         <input class="input" type="text" placeholder="Город">
                         <input class="input" type="text" placeholder="Телефон">
                         <input class="input" type="text" placeholder="Возраст">
+                        <input type="hidden" id="hid" name="possitions" value="<?php echo $h["index"]["position"];?>" />
                         <button class="button">отправить</button>
                     </form>
                 </div>
