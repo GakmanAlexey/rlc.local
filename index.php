@@ -21,6 +21,5 @@ if(false){//После установки изменить на фалсе
 session_start();
 $Core = new \Mod\Core\Core;
 
-
 //var_dump('<pre>',$Core::$h,'</pre>');
 ?>
