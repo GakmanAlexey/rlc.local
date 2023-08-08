@@ -6,6 +6,7 @@ Class User {
 
     public function register($h){
 
+
         return $h;
     }
 
