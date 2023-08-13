@@ -21,5 +21,11 @@ if(false){//После установки изменить на фалсе
 session_start();
 $Core = new \Mod\Core\Core;
 
-//var_dump('<pre>',$Core::$h,'</pre>');
+
+//$mmail = new \Mod\PHPmail\Mail;
+//$mmail->send($Core::$h,"test", ["gakman.test@ya.ru","Хозяин"], "Тема - тест", "tekcn");
+
+
+
+var_dump('<pre>',$Core::$h,'</pre>');
 ?>
