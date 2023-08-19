@@ -23,7 +23,7 @@ $Core = new \Mod\Core\Core;
 
 
 //$mmail = new \Mod\PHPmail\Mail;
-//$mmail->send($Core::$h,"test", ["gakman.test@ya.ru","Хозяин"], "Тема - тест", "tekcn");
+//$mmail->send($Core::$h,"test", ["gakman.test@ya.ru","Хозяин"], "Владик привет", "Владик пока");
 
 
 

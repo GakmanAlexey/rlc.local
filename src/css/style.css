@@ -183,3 +183,62 @@ background-color: #fff;
 .application_text{
     font-size: 28px;
 }
+
+.error_box{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1250px;
+    padding-top:20vh;
+}
+
+.error_box_mine_number{
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+}
+
+.error_box_mine_link{
+    display: flex;
+}
+
+.image_error{
+    width: 180px;
+    margin: 0 10px;
+}
+
+.error_logo{
+    width: 400px;
+}
+
+.error_box_mine_text_p{
+    font-size: 50px;
+}
+
+.error_box_mine_link{
+    display: flex;
+    align-items: baseline;
+}
+
+
+.error_box_mine_link_r{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+
+}
+
+.error_box_mine_link_l{
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.error_box_mine_link_l_p{
+    font-size: 30px;
+}
+
+.error_box_a{
+text-decoration: none;
+font-size: 24px;
+color: #000;
+}
