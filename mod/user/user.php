@@ -12,8 +12,21 @@ Class User {
 
     public function register($h){
         $h["user"] = [];
+        $h["user"]["data"] = [];
         $h["error"]["user"] = [];
         $h["user"]["type"] = "register";
+        if(!isset($_POST["go"]) ){
+            return $h;
+        }
+        $h = $this->check_date($h);
+        return $h;
+    }
+
+    public function auth($h){
+        $h["user"] = [];
+        $h["user"]["data"] = [];
+        $h["error"]["user"] = [];
+        $h["user"]["type"] = "auth";
         if(!isset($_POST["go"]) ){
             return $h;
         }
@@ -25,16 +38,37 @@ Class User {
     public function check_date($h){
         
         if($h["user"]["type"] == "register"){
+            $h = $this->prepoad_post($h);
             $h = $this->check_date_valid($h);
             $h = $this->go_register($h);
         }else if($h["user"]["type"] == "auth"){
-
+            $h = $this->prepoad_post($h);
+            $h = $this->check_date_valid($h);
+            $h = $this->go_auth($h);
         }else{
 
         }
         return $h;
     }
 
+    public function prepoad_post($h){
+        if(isset($_POST["login"])){
+            $h["user"]["data"]["login"] = $_POST["login"];
+        }
+        if(isset($_POST["password"])){
+            $h["user"]["data"]["password"] = $_POST["password"];
+        }
+        if(isset($_POST["password2"])){
+            $h["user"]["data"]["password2"] = $_POST["password2"];
+        }
+        if(isset($_POST["name"])){
+            $h["user"]["data"]["name"] = $_POST["name"];
+        }
+        if(isset($_POST["mail"])){
+            $h["user"]["data"]["mail"] = $_POST["mail"];
+        }
+        return $h;
+    }
     public function check_date_valid($h){
         if($h["user"]["type"] == "register"){
             $h["error"]["user"]["status"] = "none";
@@ -80,6 +114,27 @@ Class User {
                 $h["error"]["user"]["mail"] = "Ошибка в почте";
             }
 
+        }else if($h["user"]["type"] == "auth"){
+            $h["error"]["user"]["status"] = "none";
+            //Проверка длины логинов
+            if( strlen($_POST["login"]) < $this->login_min){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["login"] = "Логин должен быть длинее " .$this->login_min . " символов";
+            }
+            if( strlen($_POST["login"]) > $this->login_max){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["login"] = "Логин должен быть короче " .$this->login_max . " символов";
+            }
+
+            //Проверка длины паролей
+            if( strlen($_POST["password"]) < $this->pass_min){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["password"] = "Пароль должен быть длинее " .$this->pass_min . " символов";
+            }
+            if( strlen($_POST["password"]) > $this->pass_max){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["password"] = "Пароль должен быть короче " .$this->pass_max . " символов";
+            }
         }
         return $h;
     }
@@ -115,10 +170,37 @@ Class User {
         }
         
         //Перекинуть на страницу авторизации
-
         header('Location: '.$h['url']['protocol'].'://'.$h['url']['domen'].'/user/auth/', true, 301);
         exit();
         return $h;
     }
+
+    public function go_auth($h){
+        $user_ip_f = new \Lib\Ip_user;
+        $hash_pass =  new \Lib\Hash_pass;
+
+        $user_ip = $user_ip_f->get_ip();
+        $date_auth = time();
+        $pass =  $hash_pass->get_hash($_POST["login"], $_POST["password"]);
+        //получения ид пользоваеля
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `user` WHERE `login` = ? AND `pass`=?");
+        $sth->execute(array($_POST["login"],$pass));
+        $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
+        if($result_sql != false){
+            $_SESSION['id'] = $result_sql["id"];
+
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user` SET date_auth=?, ip_auth=? WHERE `id`=? ");
+            $sth1->execute(array($date_auth,$user_ip,$result_sql["id"]));
+        }else{
+            $h["error"]["user"]["status"] = "error";
+            $h["error"]["user"]["login"] = "Неверный логин или пароль";
+            $h["error"]["user"]["password"] = "Неверный логин или пароль";
+            return $h;
+        }
+        header('Location: '.$h['url']['protocol'].'://'.$h['url']['domen'].'/lc/', true, 301);
+        exit();
+        return $h;
+    }
+
 
 }

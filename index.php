@@ -7,6 +7,10 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
+ini_set('session.gc_maxlifetime', 172800);
+ini_set('session.cookie_lifetime', 172800);
+
+
 spl_autoload_register(function ($class_name) {   
     $class_name = str_replace('\\','/',$class_name);
     $class_name = strtolower($class_name);
@@ -27,5 +31,5 @@ $Core = new \Mod\Core\Core;
 
 
 
-var_dump('<pre>',$Core::$h,'</pre>');
+//var_dump('<pre>',$Core::$h,'</pre>');
 ?>

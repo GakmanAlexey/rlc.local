@@ -6,7 +6,8 @@ Class User{
     public function auth($h){
             $head =  new \Mod\Head\Head;
             $h = $head->main($h);
-            
+            $reg = new \Mod\User\User;
+            $h = $reg->auth($h);            
             $page[]="block\head";
             $page[]="user\login";
             $view = new \Mod\View\View;
