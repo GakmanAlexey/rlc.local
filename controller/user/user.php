@@ -19,7 +19,8 @@ Class User{
     public function register($h){
             $head =  new \Mod\Head\Head;
             $h = $head->main($h);
-            
+            $reg = new \Mod\User\User;
+            $h = $reg->register($h);
             $page[]="block\head";
             $page[]="user\\register";
             $view = new \Mod\View\View;
