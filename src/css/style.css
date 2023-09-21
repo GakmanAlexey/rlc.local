@@ -282,6 +282,15 @@ border-bottom: 1px solid #000;
 padding-bottom: 5px;
 }
 
+
+.input_login_e{
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #f70c0c;
+    color:#f70c0c;
+    padding-bottom: 5px;
+    }
+
 .button_login{
 margin-top: 20px;
 height: 42px;
