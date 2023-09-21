@@ -188,6 +188,8 @@ Class User {
         $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
         if($result_sql != false){
             $_SESSION['id'] = $result_sql["id"];
+            $_SESSION['login'] = $result_sql["login"];
+            $_SESSION['name'] = $result_sql["name"];
 
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user` SET date_auth=?, ip_auth=? WHERE `id`=? ");
             $sth1->execute(array($date_auth,$user_ip,$result_sql["id"]));
