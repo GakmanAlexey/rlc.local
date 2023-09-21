@@ -3,13 +3,81 @@
 namespace Mod\User;
 
 Class User {
+    public $login_min = 6;
+    public $login_max = 12;
+    public $pass_min = 6;
+    public $pass_max = 12;    
+    public $name_min = 2;
+    public $name_max = 22;
 
     public function register($h){
-
-
+        $h["user"] = [];
+        $h["error"]["user"] = [];
+        $h["user"]["type"] = "register";
+        $h = $this->check_date($h);
         return $h;
     }
 
 
+    public function check_date($h){
+        
+        if($h["user"]["type"] == "register"){
+            
+        }else if($h["user"]["type"] == "auth"){
+
+        }else{
+
+        }
+        return $h;
+    }
+
+    public function check_date_valid($h){
+        if($h["user"]["type"] == "register"){
+            $h["error"]["user"]["status"] = "none";
+            //Проверка длины логинов
+            if( strlen($_POST["login"]) < $this->login_min){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["login"] = "Логин должен быть длинее " .$this->$login_min . " символов";
+            }
+            if( strlen($_POST["login"]) > $this->login_max){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["login"] = "Логин должен быть короче " .$this->$login_max . " символов";
+            }
+
+            //Проверка длины паролей
+            if( strlen($_POST["password"]) < $this->pass_min){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["password"] = "Пароль должен быть длинее " .$this->$pass_min . " символов";
+            }
+            if( strlen($_POST["password"]) > $this->pass_max){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["password"] = "Пароль должен быть короче " .$this->$pass_max . " символов";
+            }
+
+            //Проверка совпадения паролей
+            if($_POST["password"] != $_POST["password2"]){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["password2"] = "Пароль не совпадают";
+            }
+
+            //Проверка длины имени
+            if( strlen($_POST["name"]) < $this->name_min){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["name"] = "Имя должен быть длинее " .$this->$name_min . " символов";
+            }
+            if( strlen($_POST["name"]) > $this->name_max){
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["name"] = "Имя должен быть короче " .$this->$name_max . " символов";
+            }
+
+            //Проверка валидности почты
+            if (filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
+                $h["error"]["user"]["status"] = "error";
+                $h["error"]["user"]["mail"] = "Ошибка в почте";
+            }
+
+        }
+        return $h;
+    }
 
 }
