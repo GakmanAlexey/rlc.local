@@ -98,30 +98,26 @@ Class User {
             return $h;
         }
 
-        //Добавить данные в базу
-        /*
-    1	id Первичный	int(11)		
-	2	login	varchar(255)	
-	3	pass	varchar(255)	
-	4	email	varchar(255)	
-	5	name	varchar(255)	
-	6	date_birday	varchar(255)	
-	7	date_reg	varchar(255)	
-	8	ip_reg	varchar(255)	
-	9	date_auth	varchar(255)	
-	10	ip_auth	varchar(255)	
-	11	destr	varchar(255)	
-    */
+        $user_ip_f = new \Lib\Ip_user;
+        $hash_pass =  new \Lib\Hash_pass;
 
+        $user_ip = $user_ip_f->get_ip();
+        $date_reg = time();
+        $pass =  $hash_pass->get_hash($_POST["login"], $_POST["password"]);
+
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare("INSERT INTO `user` (`login`, `pass`,`email`,`name`,`date_reg`,`ip_reg`,`date_birday`) VALUES (?, ?, ?, ?, ?, ?,0) ");
+        $status_reg = $sth->execute(array($_POST["login"],$pass,$_POST["mail"],$_POST["name"],$date_reg,$user_ip));
+        if(!$status_reg){
+            $h["error"]["user"]["status"] = "error";
+            $h["error"]["user"]["login"] = "Неизвестная ошибка";
+            
+            return $h;
+        }
+        
         //Перекинуть на страницу авторизации
 
-
-        echo "nachalo registrachii";
-        
-
-
-
-
+        header('Location: '.$h['url']['protocol'].'://'.$h['url']['domen'].'/user/auth/', true, 301);
+        exit();
         return $h;
     }
 
