@@ -30,3 +30,7 @@
 [24.09.2023 23:53:25] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\lc\index.php
 [24.09.2023 23:53:53] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\lc\index.php
 [24.09.2023 23:53:53] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\lc\index.php
+[28.09.2023 23:11:24] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\block\devie.php
+[28.09.2023 23:11:27] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\block\devie.php
+[28.09.2023 23:11:39] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\lc\devie.php
+[28.09.2023 23:11:43] system: Не найдет файл: C:\OSPanel\domains\rlc.local\view\lc\devie.php

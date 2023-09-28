@@ -2,14 +2,14 @@
 
 namespace Controller\lc;
 
-Class Index{
+Class device{
     public function index($h){
             $head =  new \Mod\Head\Head;
             $h = $head->main($h);
             
             $page[]="block\head";
             $page[]="lc\menu";
-            $page[]="lc\index";
+            $page[]="lc\device";
             $view = new \Mod\View\View;
             $view->show($h,$page);
 
